@@ -1,0 +1,27 @@
+{
+  "name": "timemachine",
+  "version": "0.1.0",
+  "description": "An Undo/Redo command pattern library that allow to implement in an easy and (maybe) efficient way an undo/redo system",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doublemme/timemachine.git"
+  },
+  "keywords": [
+    "undo-redo"
+  ],
+  "author": "Michael Martin",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Doublemme/timemachine/issues"
+  },
+  "homepage": "https://github.com/Doublemme/timemachine#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3"
+  }
+}
