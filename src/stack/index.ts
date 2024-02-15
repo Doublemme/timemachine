@@ -10,7 +10,7 @@ export class TimeMachine<T> {
     this.maxSize = maxSize ? maxSize : 100;
     this.redoHead = -1;
     this.undoHead = -1;
-    this.undoStack = new Array().fill(undefined as T, 0, this.maxSize - 1);
+    this.undoStack = new Array(this.maxSize);
     this.redoStack = [];
   }
 
