@@ -17,6 +17,10 @@ export class TreeTimeMachine<T> {
     this.head = this.root;
   }
 
+  /**
+   * Insert a new node in the history tree after the current head node
+   * @param data The value of the node
+   */
   insert(data: T) {
     const newNode: _TreeNode<T> = {
       parent: this.head,
@@ -27,10 +31,19 @@ export class TreeTimeMachine<T> {
     this.head = newNode;
   }
 
+  /**
+   * Read the currente head node and return its value
+   *
+   * @returns The value of the current node
+   */
   peek(): T {
     return this.head.data;
   }
 
+  /**
+   * Restore the previous state from the currrent node
+   * @param callback A custom action invoked after the undo
+   */
   undo(callback?: (nodeData: T) => void) {
     this.head = this.head.parent ? this.head.parent : this.root;
     if (callback) {
@@ -38,6 +51,12 @@ export class TreeTimeMachine<T> {
     }
   }
 
+  /**
+   * Restore the next node in the tree, if multiple branches are available
+   * you need to provide the branch index otherwise an error will be throw.
+   * @param childIdx The branch index to navigate to
+   * @param callback A custom action invoked after the redo
+   */
   redo(childIdx?: number, callback?: (nodeData: T) => void) {
     if (this.head.children.length > 1 && childIdx === undefined) {
       throw new Error(
